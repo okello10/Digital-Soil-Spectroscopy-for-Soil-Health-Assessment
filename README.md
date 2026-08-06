@@ -1,5 +1,23 @@
 # Digital Soil Spectroscopy for Soil Health Assessment
 
+![R](https://img.shields.io/badge/R-276DC3?style=for-the-badge&logo=r&logoColor=white)
+![RStudio](https://img.shields.io/badge/RStudio-75AADB?style=for-the-badge&logo=rstudio&logoColor=white)
+![Machine Learning](https://img.shields.io/badge/Machine-Learning-0A9396?style=for-the-badge)
+![PLSR](https://img.shields.io/badge/PLSR-8E44AD?style=for-the-badge)
+![Random Forest](https://img.shields.io/badge/Random-Forest-2E8B57?style=for-the-badge)
+![PCA](https://img.shields.io/badge/PCA-1F77B4?style=for-the-badge)
+![Soil Spectroscopy](https://img.shields.io/badge/Soil-Spectroscopy-B5651D?style=for-the-badge)
+![Agricultural Data Science](https://img.shields.io/badge/Agricultural-Data%20Science-4CAF50?style=for-the-badge)
+
+![GitHub last commit](https://img.shields.io/github/last-commit/okello10/Digital-Soil-Spectroscopy-for-Soil-Health-Assessment?style=for-the-badge)
+
+![GitHub repo size](https://img.shields.io/github/repo-size/okello10/Digital-Soil-Spectroscopy-for-Soil-Health-Assessment?style=for-the-badge)
+
+![GitHub stars](https://img.shields.io/github/stars/okello10/Digital-Soil-Spectroscopy-for-Soil-Health-Assessment?style=for-the-badge)
+
+## Overview
+
+This repository demonstrates an end-to-end workflow for analyzing soil spectroscopy data using statistical and machine learning techniques...
 ## Overview
 
 This repository demonstrates an end-to-end workflow for analyzing soil spectroscopy data using statistical and machine learning techniques. The project uses Mid-Infrared (MIR) spectra, laboratory reference measurements, and Portable X-Ray Fluorescence (pXRF) data collected from soil samples in Bungoma County, Kenya.
