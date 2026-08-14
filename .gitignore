@@ -1,4 +1,13 @@
+# R / RStudio
 .Rproj.user/
 .Rhistory
 .RData
 .Ruserdata
+*.Rproj
+
+# Raw soil data
+Data/raw/
+Data/SOIL/
+
+# Generated figures
+Outputs/Figures/
