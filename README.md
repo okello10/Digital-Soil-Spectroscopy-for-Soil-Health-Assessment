@@ -23,6 +23,14 @@ The objective is to evaluate the potential of digital soil spectroscopy for pred
 
 ---
 
+## Key Results
+
+- Processed MIR spectral data from 140 soil samples.
+- Developed PLS regression models for four soil properties.
+- Achieved the strongest predictive performance for Acidified Nitrogen (R² = 0.822, RPD = 2.38).
+- Applied spectral preprocessing, PCA, cross-validation, and independent test-set evaluation.
+- Generated reproducible visualizations and model-performance reports using R.
+
 ## Objectives
 
 - Import and clean soil spectroscopy datasets
@@ -113,6 +121,52 @@ The models were evaluated using an independent test set and assessed using R², R
 ### Key Finding
 
 The Acidified Nitrogen model achieved the strongest overall predictive performance, with an R² of **0.822**, RMSE of **0.015**, and RPD of **2.38**.
+
+
+## Random Forest Calibration
+
+Random Forest regression was used as an alternative machine-learning approach for predicting the same four soil properties from preprocessed MIR spectral data:
+
+- Total Nitrogen
+- Total Carbon
+- Acidified Nitrogen
+- Acidified Carbon
+
+The Random Forest models were optimized using cross-validation to determine the optimal number of variables randomly sampled at each split (`mtry`). Model performance was evaluated using an independent test set based on R², RMSE, and Ratio of Performance to Deviation (RPD).
+
+### Model Performance
+
+| Soil Property      | Optimal mtry | R²    | RMSE   | RPD  |
+| ------------------ | -----------: | ----: | ------: | ----: |
+| Total Nitrogen     | 75           | 0.560 | 0.0243 | 1.50 |
+| Total Carbon       | 50           | 0.644 | 0.2578 | 1.69 |
+| Acidified Nitrogen | 10           | 0.575 | 0.0237 | 1.50 |
+| Acidified Carbon   | 100          | 0.558 | 0.3259 | 1.52 |
+
+### Random Forest Calibration Results
+
+#### Total Nitrogen
+
+![Random Forest Total Nitrogen](Outputs/Figures/RF_Total_Nitrogen_vs_Predicted.png)
+
+#### Total Carbon
+
+![Random Forest Total Carbon](Outputs/Figures/RF_Total_Carbon_vs_Predicted.png)
+
+#### Acidified Nitrogen
+
+![Random Forest Acidified Nitrogen](Outputs/Figures/RF_Acidified_Nitrogen_vs_Predicted.png)
+
+#### Acidified Carbon
+
+![Random Forest Acidified Carbon](Outputs/Figures/RF_Acidified_Carbon_vs_Predicted.png)
+
+### Key Finding
+
+Random Forest provided moderate predictive performance across the four soil properties. Total Carbon achieved the strongest Random Forest performance with an R² of 0.644 and RPD of 1.69.
+
+Compared with the PLS models, Random Forest produced lower predictive performance for all four soil properties. This comparison demonstrates the importance of evaluating multiple modelling approaches when working with high-dimensional soil spectroscopy data.
+
 
 ## Software
 
