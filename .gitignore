@@ -10,4 +10,5 @@ Data/raw/
 Data/SOIL/
 
 # Generated figures
-Outputs/Figures/
+Outputs/Figures/*
+!Outputs/Figures/PLS_*.png
