@@ -17,9 +17,6 @@
 
 ## Overview
 
-This repository demonstrates an end-to-end workflow for analyzing soil spectroscopy data using statistical and machine learning techniques...
-## Overview
-
 This repository demonstrates an end-to-end workflow for analyzing soil spectroscopy data using statistical and machine learning techniques. The project uses Mid-Infrared (MIR) spectra, laboratory reference measurements, and Portable X-Ray Fluorescence (pXRF) data collected from soil samples in Bungoma County, Kenya.
 
 The objective is to evaluate the potential of digital soil spectroscopy for predicting soil properties and supporting soil health assessment.
@@ -74,6 +71,48 @@ The project integrates multiple datasets:
 10. Reporting
 
 ---
+
+## PLS Regression Calibration
+
+Partial Least Squares (PLS) regression was used to develop predictive models for four soil properties using preprocessed MIR spectral data:
+
+- Total Nitrogen
+- Total Carbon
+- Acidified Nitrogen
+- Acidified Carbon
+
+The models were evaluated using an independent test set and assessed using R², RMSE, and Ratio of Performance to Deviation (RPD).
+
+### Model Performance
+
+| Soil Property | PLS Components | R² | RMSE | RPD |
+|---|---:|---:|---:|---:|
+| Total Nitrogen | 13 | 0.675 | 0.0206 | 1.78 |
+| Total Carbon | 16 | 0.760 | 0.2386 | 1.83 |
+| Acidified Nitrogen | 14 | **0.822** | **0.0150** | **2.38** |
+| Acidified Carbon | 20 | 0.740 | 0.2546 | 1.95 |
+
+### PLS Calibration Results
+
+#### Total Nitrogen
+
+![PLS Calibration - Total Nitrogen](Outputs/Figures/PLS_Total_Nitrogen_Observed_vs_Predicted.png)
+
+#### Total Carbon
+
+![PLS Calibration - Total Carbon](Outputs/Figures/PLS_Total_Carbon_Observed_vs_Predicted.png)
+
+#### Acidified Nitrogen
+
+![PLS Calibration - Acidified Nitrogen](Outputs/Figures/PLS_Acidified_Nitrogen_Observed_vs_Predicted.png)
+
+#### Acidified Carbon
+
+![PLS Calibration - Acidified Carbon](Outputs/Figures/PLS_Acidified_Carbon_Observed_vs_Predicted.png)
+
+### Key Finding
+
+The Acidified Nitrogen model achieved the strongest overall predictive performance, with an R² of **0.822**, RMSE of **0.015**, and RPD of **2.38**.
 
 ## Software
 
