@@ -147,19 +147,20 @@ The Random Forest models were optimized using cross-validation to determine the 
 
 #### Total Nitrogen
 
-![Random Forest Total Nitrogen](Outputs/Figures/RF_Total_Nitrogen_vs_Predicted.png)
+![Random Forest Total Nitrogen](Outputs/Figures/RF_Total_Nitrogen_Observed_vs_Predicted.png)
 
 #### Total Carbon
 
-![Random Forest Total Carbon](Outputs/Figures/RF_Total_Carbon_vs_Predicted.png)
+![Random Forest Total Carbon](Outputs/Figures/RF_Total_Carbon_Observed_vs_Predicted.png)
 
 #### Acidified Nitrogen
 
-![Random Forest Acidified Nitrogen](Outputs/Figures/RF_Acidified_Nitrogen_vs_Predicted.png)
+![Random Forest Acidified Nitrogen](Outputs/Figures/RF_Acidified_Nitrogen_Observed_vs_Predicted.png)
 
 #### Acidified Carbon
 
-![Random Forest Acidified Carbon](Outputs/Figures/RF_Acidified_Carbon_vs_Predicted.png)
+![Random Forest Acidified Carbon](Outputs/Figures/RF_Acidified_Carbon_Observed_vs_Predicted.png)
+
 
 ### Key Finding
 
