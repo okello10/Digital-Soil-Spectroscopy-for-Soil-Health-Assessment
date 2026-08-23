@@ -12,3 +12,4 @@ Data/SOIL/
 # Generated figures
 Outputs/Figures/*
 !Outputs/Figures/PLS_*.png
+!Outputs/Figures/RF_*.png
