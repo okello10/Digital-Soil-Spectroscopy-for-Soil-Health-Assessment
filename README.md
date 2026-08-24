@@ -169,6 +169,20 @@ Random Forest provided moderate predictive performance across the four soil prop
 Compared with the PLS models, Random Forest produced lower predictive performance for all four soil properties. This comparison demonstrates the importance of evaluating multiple modelling approaches when working with high-dimensional soil spectroscopy data.
 
 
+## PLS vs Random Forest Comparison
+
+The predictive performance of Partial Least Squares (PLS) regression and Random Forest models was compared across the four soil properties.
+
+The comparison shows that PLS regression consistently outperformed Random Forest for the evaluated soil properties, with the strongest PLS performance observed for Acidified Nitrogen (R² = 0.822, RPD = 2.38).
+
+![PLS vs Random Forest Model Comparison](Outputs/Figures/PLS_vs_Random_Forest_Comparison.png)
+
+### Key Insight
+
+PLS regression demonstrated stronger predictive performance than Random Forest across all four evaluated soil properties. This suggests that, for this dataset, the linear latent-variable approach of PLS was better suited to extracting predictive information from the high-dimensional MIR spectral data.
+
+
+
 ## Software
 
 - R
