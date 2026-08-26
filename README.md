@@ -80,6 +80,52 @@ The project integrates multiple datasets:
 
 ---
 
+## Spectral Exploration
+
+The raw Mid-Infrared (MIR) spectra were explored to assess spectral variation across the 140 soil samples. The spectra covered a wavenumber range of approximately 601.7-4001.6 cm-1, with 1,764 spectral variables.
+
+### Raw MIR Spectral Signatures
+
+The spectral signatures provide an overview of the variation captured across the MIR wavelength range before spectral preprocessing.
+
+![Raw MIR Spectral Signatures](Outputs/Figures/Raw_MIR_Spectral_Signatures.png)
+
+---
+
+## Principal Component Analysis
+
+Principal Component Analysis (PCA) was performed on the SNV-preprocessed MIR spectra to explore major patterns of spectral variation and reduce the dimensionality of the 1,764 spectral variables.
+
+The first principal component (PC1) explained **55.51%** of the total variance, while PC2 explained **25.60%**. Together, the first two components explained **81.11%** of the spectral variance.
+
+### PCA Score Plot
+
+![PCA Score Plot](Outputs/Figures/PCA_scores_PC1_PC2.png)
+
+The PCA score plot shows the distribution of soil samples in the first two principal-component dimensions and provides an overview of spectral similarity and variation among samples.
+
+### Property-Coloured PCA
+
+PCA scores were additionally coloured according to laboratory reference measurements for the four target soil properties.
+
+#### Total Nitrogen
+
+![PCA Total Nitrogen](Outputs/Figures/PCA_Total_Nitrogen.png)
+
+#### Total Carbon
+
+![PCA Total Carbon](Outputs/Figures/PCA_Total_Carbon.png)
+
+#### Acidified Nitrogen
+
+![PCA Acidified Nitrogen](Outputs/Figures/PCA_Acidified_Nitrogen.png)
+
+#### Acidified Carbon
+
+![PCA Acidified Carbon](Outputs/Figures/PCA_Acidified_Carbon.png)
+
+---
+
 ## PLS Regression Calibration
 
 Partial Least Squares (PLS) regression was used to develop predictive models for four soil properties using preprocessed MIR spectral data:
