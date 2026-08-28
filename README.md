@@ -225,8 +225,7 @@ The comparison shows that PLS regression consistently outperformed Random Forest
 
 ### Key Insight
 
-PLS regression demonstrated stronger predictive performance than Random Forest across all four evaluated soil properties. This suggests that, for this dataset, the linear latent-variable approach of PLS was better suited to extracting predictive information from the high-dimensional MIR spectral data.
-
+PLS regression demonstrated stronger predictive performance than Random Forest across all four evaluated soil properties under the modelling and validation setup used in this study.
 
 
 ## Software
@@ -286,23 +285,4 @@ presentation/
 
 Gard Okello
 
-Data Analyst | Soil Spectroscopy | Agricultural Data Science | Machine Learning
-
-#Digital-Soil-Spectroscopy-for-Soil-Health-Assessment
-│
-├── data
-│   ├── raw
-│   ├── processed
-│   └── metadata
-│
-├── scripts
-│
-├── figures
-│
-├── reports
-│
-├── dashboard
-│
-├── presentation
-│
-└── docs
+Data Analyst | Soil Spectroscopy | Agricultural Data Science | Machine Learning | Research Assistant 
