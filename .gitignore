@@ -13,3 +13,4 @@ Data/SOIL/
 Outputs/Figures/*
 !Outputs/Figures/PLS_*.png
 !Outputs/Figures/RF_*.png
+!Outputs/Figures/MIR_Spectral_PCA_Overview.png
