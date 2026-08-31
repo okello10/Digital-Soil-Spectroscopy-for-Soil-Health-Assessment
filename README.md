@@ -25,11 +25,17 @@ The objective is to evaluate the potential of digital soil spectroscopy for pred
 
 ## Key Results
 
-- Processed MIR spectral data from 140 soil samples.
-- Developed PLS regression models for four soil properties.
-- Achieved the strongest predictive performance for Acidified Nitrogen (R² = 0.822, RPD = 2.38).
-- Applied spectral preprocessing, PCA, cross-validation, and independent test-set evaluation.
-- Generated reproducible visualizations and model-performance reports using R.
+- Processed MIR spectral data from **140 soil samples**.
+- Worked with **1,764 MIR spectral variables**.
+- Applied spectral preprocessing using **Standard Normal Variate (SNV)** and **Savitzky-Golay first derivative** methods.
+- Performed Principal Component Analysis (PCA), with the first two components explaining **81.11%** of the total spectral variance.
+- Developed Partial Least Squares (PLS) regression models for four soil properties.
+- Developed Random Forest regression models as an alternative machine-learning approach.
+- PLS outperformed Random Forest across all four evaluated soil properties under the modelling and validation setup used in this study.
+- The strongest predictive result was obtained for **Acidified Nitrogen using PLS**, with **R² = 0.822, RMSE = 0.015, and RPD = 2.38**.
+- Generated reproducible analysis scripts, model outputs, performance metrics, and visualizations using R.
+
+---
 
 ## Objectives
 
@@ -38,15 +44,17 @@ The objective is to evaluate the potential of digital soil spectroscopy for pred
 - Perform spectral preprocessing
 - Conduct Principal Component Analysis (PCA)
 - Develop Partial Least Squares (PLS) regression models
+- Develop Random Forest regression models
 - Compare PLS with Random Forest models
-- Assess model performance using independent validation datasets
+- Assess model performance using independent test datasets
 - Visualize spectral patterns and prediction accuracy
+- Build a reproducible soil spectroscopy and machine learning workflow
 
 ---
 
 ## Study Area
 
-Bungoma County, Kenya
+**Bungoma County, Kenya**
 
 ---
 
@@ -54,7 +62,7 @@ Bungoma County, Kenya
 
 The project integrates multiple datasets:
 
-- MIR spectral data
+- Mid-Infrared (MIR) spectral data
 - Laboratory reference soil properties
 - Carbon and Nitrogen (CN) measurements
 - Portable X-Ray Fluorescence (pXRF) data
@@ -70,31 +78,61 @@ The project integrates multiple datasets:
 1. Data Import
 2. Data Cleaning
 3. Exploratory Data Analysis
-4. Spectral Preprocessing
-5. Principal Component Analysis
-6. Partial Least Squares Regression
-7. Random Forest Modelling
-8. Model Validation
-9. Results Visualization
-10. Reporting
+4. MIR Spectral Exploration
+5. Spectral Preprocessing
+6. Principal Component Analysis
+7. Partial Least Squares Regression
+8. Random Forest Modelling
+9. Model Validation
+10. PLS vs Random Forest Comparison
+11. Results Visualization
+12. Reporting
 
 ---
 
 ## Spectral Exploration
 
-The raw Mid-Infrared (MIR) spectra were explored to assess spectral variation across the 140 soil samples. The spectra covered a wavenumber range of approximately 601.7-4001.6 cm-1, with 1,764 spectral variables.
+The raw Mid-Infrared (MIR) spectra were explored to assess spectral variation across the **140 soil samples**. The spectra covered a wavenumber range of approximately **601.7-4001.6 cm-1**, with **1,764 spectral variables**.
+
+### MIR Spectral and PCA Overview
+
+The figure below summarizes the major exploratory stages of the project, including the raw MIR spectral signatures, PCA score structure, and relationships between PCA scores and laboratory soil properties.
+
+![MIR Spectral and PCA Overview](Outputs/Figures/MIR_Spectral_PCA_Overview.png)
 
 ### Raw MIR Spectral Signatures
 
-The spectral signatures provide an overview of the variation captured across the MIR wavelength range before spectral preprocessing.
+The raw spectra provide an overview of the spectral variation captured across the measured MIR wavelength range prior to preprocessing.
 
-![Raw MIR Spectral Signatures](Outputs/Figures/Raw_MIR_Spectral_Signatures.png)
+![Raw MIR Spectral Signatures](Outputs/Figures/raw_MIR_spectra.png)
+
+---
+
+## Spectral Preprocessing
+
+Spectral preprocessing was performed to improve the quality and comparability of the MIR spectra prior to multivariate analysis and predictive modelling.
+
+### Standard Normal Variate (SNV)
+
+Standard Normal Variate preprocessing was applied to the MIR spectra to reduce multiplicative and additive effects associated with spectral scattering.
+
+![SNV Spectra](Outputs/Figures/SNV_spectra.png)
+
+### Savitzky-Golay First Derivative
+
+A Savitzky-Golay first derivative transformation was applied to emphasize spectral features and reduce baseline effects.
+
+![Savitzky-Golay First Derivative](Outputs/Figures/SG_first_derivative_spectra.png)
+
+A detailed view of the first-derivative spectra is also available:
+
+![Detailed Savitzky-Golay First Derivative](Outputs/Figures/SG_first_derivative_spectra_detail.png)
 
 ---
 
 ## Principal Component Analysis
 
-Principal Component Analysis (PCA) was performed on the SNV-preprocessed MIR spectra to explore major patterns of spectral variation and reduce the dimensionality of the 1,764 spectral variables.
+Principal Component Analysis (PCA) was performed on the SNV-preprocessed MIR spectra to explore major patterns of spectral variation and reduce the dimensionality of the spectral dataset.
 
 The first principal component (PC1) explained **55.51%** of the total variance, while PC2 explained **25.60%**. Together, the first two components explained **81.11%** of the spectral variance.
 
@@ -102,7 +140,9 @@ The first principal component (PC1) explained **55.51%** of the total variance, 
 
 ![PCA Score Plot](Outputs/Figures/PCA_scores_PC1_PC2.png)
 
-The PCA score plot shows the distribution of soil samples in the first two principal-component dimensions and provides an overview of spectral similarity and variation among samples.
+### PCA Variance Explained
+
+![PCA Variance Explained](Outputs/Figures/PCA_variance_explained.png)
 
 ### Property-Coloured PCA
 
@@ -135,7 +175,7 @@ Partial Least Squares (PLS) regression was used to develop predictive models for
 - Acidified Nitrogen
 - Acidified Carbon
 
-The models were evaluated using an independent test set and assessed using R², RMSE, and Ratio of Performance to Deviation (RPD).
+The models were evaluated using independent test sets and assessed using R², RMSE, and Ratio of Performance to Deviation (RPD).
 
 ### Model Performance
 
@@ -166,8 +206,9 @@ The models were evaluated using an independent test set and assessed using R², R
 
 ### Key Finding
 
-The Acidified Nitrogen model achieved the strongest overall predictive performance, with an R² of **0.822**, RMSE of **0.015**, and RPD of **2.38**.
+The Acidified Nitrogen PLS model achieved the strongest overall predictive performance, with an **R² of 0.822**, **RMSE of 0.015**, and **RPD of 2.38** on the independent test dataset.
 
+---
 
 ## Random Forest Calibration
 
@@ -182,51 +223,83 @@ The Random Forest models were optimized using cross-validation to determine the 
 
 ### Model Performance
 
-| Soil Property      | Optimal mtry | R²    | RMSE   | RPD  |
-| ------------------ | -----------: | ----: | ------: | ----: |
-| Total Nitrogen     | 75           | 0.560 | 0.0243 | 1.50 |
-| Total Carbon       | 50           | 0.644 | 0.2578 | 1.69 |
-| Acidified Nitrogen | 10           | 0.575 | 0.0237 | 1.50 |
-| Acidified Carbon   | 100          | 0.558 | 0.3259 | 1.52 |
+| Soil Property | Optimal mtry | R² | RMSE | RPD |
+|---|---:|---:|---:|---:|
+| Total Nitrogen | 75 | 0.560 | 0.0243 | 1.50 |
+| Total Carbon | 50 | 0.644 | 0.2578 | 1.69 |
+| Acidified Nitrogen | 10 | 0.575 | 0.0237 | 1.50 |
+| Acidified Carbon | 100 | 0.558 | 0.3259 | 1.52 |
 
 ### Random Forest Calibration Results
 
 #### Total Nitrogen
 
-![Random Forest Total Nitrogen](Outputs/Figures/RF_Total_Nitrogen_Observed_vs_Predicted.png)
+![Random Forest Calibration - Total Nitrogen](Outputs/Figures/RF_Total_Nitrogen_Observed_vs_Predicted.png)
 
 #### Total Carbon
 
-![Random Forest Total Carbon](Outputs/Figures/RF_Total_Carbon_Observed_vs_Predicted.png)
+![Random Forest Calibration - Total Carbon](Outputs/Figures/RF_Total_Carbon_Observed_vs_Predicted.png)
 
 #### Acidified Nitrogen
 
-![Random Forest Acidified Nitrogen](Outputs/Figures/RF_Acidified_Nitrogen_Observed_vs_Predicted.png)
+![Random Forest Calibration - Acidified Nitrogen](Outputs/Figures/RF_Acidified_Nitrogen_Observed_vs_Predicted.png)
 
 #### Acidified Carbon
 
-![Random Forest Acidified Carbon](Outputs/Figures/RF_Acidified_Carbon_Observed_vs_Predicted.png)
+![Random Forest Calibration - Acidified Carbon](Outputs/Figures/RF_Acidified_Carbon_Observed_vs_Predicted.png)
 
+### Variable Importance
+
+Random Forest variable-importance analysis was used to identify spectral variables contributing most strongly to prediction of the target soil properties.
+
+#### Total Nitrogen
+
+![Random Forest Total Nitrogen Variable Importance](Outputs/Figures/RF_Total_Nitrogen_Variable_Importance.png)
+
+#### Total Carbon
+
+![Random Forest Total Carbon Variable Importance](Outputs/Figures/RF_Total_Carbon_Variable_Importance.png)
+
+#### Acidified Nitrogen
+
+![Random Forest Acidified Nitrogen Variable Importance](Outputs/Figures/RF_Acidified_Nitrogen_Variable_Importance.png)
+
+#### Acidified Carbon
+
+![Random Forest Acidified Carbon Variable Importance](Outputs/Figures/RF_Acidified_Carbon_Variable_Importance.png)
 
 ### Key Finding
 
-Random Forest provided moderate predictive performance across the four soil properties. Total Carbon achieved the strongest Random Forest performance with an R² of 0.644 and RPD of 1.69.
+Among the Random Forest models, **Total Carbon** achieved the strongest predictive performance, with an **R² of 0.644**, **RMSE of 0.2578**, and **RPD of 1.69**.
 
-Compared with the PLS models, Random Forest produced lower predictive performance for all four soil properties. This comparison demonstrates the importance of evaluating multiple modelling approaches when working with high-dimensional soil spectroscopy data.
-
+---
 
 ## PLS vs Random Forest Comparison
 
 The predictive performance of Partial Least Squares (PLS) regression and Random Forest models was compared across the four soil properties.
 
-The comparison shows that PLS regression consistently outperformed Random Forest for the evaluated soil properties, with the strongest PLS performance observed for Acidified Nitrogen (R² = 0.822, RPD = 2.38).
+The comparison shows that **PLS regression consistently outperformed Random Forest** for the evaluated soil properties under the modelling and validation setup used in this study.
 
 ![PLS vs Random Forest Model Comparison](Outputs/Figures/PLS_vs_Random_Forest_Comparison.png)
+
+### Model Comparison
+
+| Soil Property | PLS R² | Random Forest R² | Better-performing Model |
+|---|---:|---:|---|
+| Total Nitrogen | **0.675** | 0.560 | PLS |
+| Total Carbon | **0.760** | 0.644 | PLS |
+| Acidified Nitrogen | **0.822** | 0.575 | PLS |
+| Acidified Carbon | **0.740** | 0.558 | PLS |
 
 ### Key Insight
 
 PLS regression demonstrated stronger predictive performance than Random Forest across all four evaluated soil properties under the modelling and validation setup used in this study.
 
+The strongest overall model was the **PLS model for Acidified Nitrogen**, which achieved an **R² of 0.822** and **RPD of 2.38**.
+
+This comparison highlights the importance of evaluating multiple modelling approaches when working with high-dimensional soil spectroscopy data.
+
+---
 
 ## Software
 
@@ -244,19 +317,39 @@ PLS regression demonstrated stronger predictive performance than Random Forest a
 - plotly
 - janitor
 - readr
+- viridis
+- patchwork
 
 ---
 
 ## Repository Structure
 
 ```text
-scripts/
-figures/
-reports/
-dashboard/
-presentation/
-```
-
+Digital-Soil-Spectroscopy-for-Soil-Health-Assessment/
+???
+????????? Data/
+???   ????????? processed/
+???
+????????? Outputs/
+???   ????????? Figures/
+???
+????????? scripts/
+???   ????????? 00_setup.R
+???   ????????? 01_data_inventory.R
+???   ????????? 02_data_quality.R
+???   ????????? 03_create_model_data.R
+???   ????????? 04_spectral_exploration.R
+???   ????????? 05_spectral_preprocessing.R
+???   ????????? 06_pca_analysis.R
+???   ????????? 07_pls_calibration.R
+???   ????????? 08_random_forest.R
+???   ????????? 09_SG_first_derivative_detail.R
+???   ????????? 10_PLS_vs_Random_Forest_comparison.R
+???   ????????? 11_spectral_and_pca_overview.R
+???
+????????? .gitignore
+????????? README.md
+????????? Digital-Soil-Spectroscopy-for-Soil-Health-Assessment.Rproj
 ---
 
 ## Sample Outputs
