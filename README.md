@@ -326,18 +326,30 @@ This comparison highlights the importance of evaluating multiple modelling appro
 
 ```text
 Digital-Soil-Spectroscopy-for-Soil-Health-Assessment/
-???
-????????? Data/
-???   ????????? processed/
-???
-????????? Outputs/
-???   ????????? Figures/
-???
-????????? scripts/
-???
-????????? .gitignore
-????????? README.md
-????????? Digital-Soil-Spectroscopy-for-Soil-Health-Assessment.Rproj
+|
+|-- Data/
+|   `-- processed/
+|
+|-- Outputs/
+|   `-- Figures/
+|
+|-- scripts/
+|   |-- 00_setup.R
+|   |-- 01_data_inventory.R
+|   |-- 02_data_quality.R
+|   |-- 03_create_model_data.R
+|   |-- 04_spectral_exploration.R
+|   |-- 05_spectral_preprocessing.R
+|   |-- 06_pca_analysis.R
+|   |-- 07_pls_calibration.R
+|   |-- 08_random_forest.R
+|   |-- 09_SG_first_derivative_detail.R
+|   |-- 10_PLS_vs_Random_Forest_comparison.R
+|   `-- 11_spectral_and_pca_overview.R
+|
+|-- .gitignore
+|-- README.md
+`-- Digital-Soil-Spectroscopy-for-Soil-Health-Assessment.Rproj
 ---
 
 ## Sample Outputs
