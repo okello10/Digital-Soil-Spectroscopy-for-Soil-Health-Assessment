@@ -28,9 +28,10 @@ library(patchwork)
 # ----------------------------------------------------------------
 
 model_data <- readr::read_csv(
-  "Data/processed/mir_reference_matched.csv",
+       "Data/processed/mir_reference_matched.csv",
   show_col_types = FALSE
 )
+
 
 
 # ----------------------------------------------------------------
@@ -194,22 +195,16 @@ raw_spectra_plot <- ggplot(
   aes(
     x = Wavenumber,
     y = Response,
-    group = Sample_ID,
-    color = Sample_ID
+    group = Sample_ID
   )
 ) +
   
   geom_line(
-    linewidth = 0.35,
-    alpha = 0.45
+    alpha = 0.35,
+    linewidth = 0.35
   ) +
   
   scale_x_reverse() +
-  
-  scale_color_viridis_c(
-    option = "viridis",
-    name = "Sample order"
-  ) +
   
   labs(
     title = "MIR Spectral Signatures (Raw Spectra)",
@@ -234,7 +229,7 @@ raw_spectra_plot <- ggplot(
     plot.subtitle = element_text(
       size = 11
     ),
-    legend.position = "right",
+    legend.position = "none",
     panel.grid.minor = element_blank()
   )
 
@@ -266,8 +261,7 @@ pca_score_plot <- ggplot(
   pca_scores,
   aes(
     x = PC1,
-    y = PC2,
-    color = Sample_ID
+    y = PC2
   )
 ) +
   
@@ -285,12 +279,7 @@ pca_score_plot <- ggplot(
   
   geom_point(
     size = 2.8,
-    alpha = 0.9
-  ) +
-  
-  scale_color_viridis_c(
-    option = "viridis",
-    name = "Sample order"
+    alpha = 0.75
   ) +
   
   labs(
